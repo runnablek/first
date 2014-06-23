@@ -1,0 +1,51 @@
+
+# sublime Text 3 설치
+
+http://www.sublimetext.com/3
+
+
+# Package Control 설치
+
+
+https://sublime.wbond.net/installation#st3
+
+
+ctrl + ` 실행 후 아래 명령어 실행
+
+import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+
+
+# python 3.4.1  설치 
+
+https://www.python.org/
+
+
+
+# sublime 한글 깨짐은... 
+[ConvertToUTF8] Charater set이 euckr 등의 문서는 한글이 깨져서 보이는데, Ctrl+Shift+p (윈도,리눅스) > Package Control: install Package > ConvertToUTF8 을 설치한 후 
+> sublime 재시작 > File - Set File Encoding to - Korean(EUC-KR)
+
+
+# 윈도우 환경변수에 path에 python 설치 경로 추가
+
+C:\Python34
+
+
+# *.py 확장자 파일 만들어서 ctrl+b 누르면 실행확인 할 수 있음
+
+
+# git 
+
+http://www.git-scm.com/downloads/guis
+
+에서 적당한 윈도우 클라이언트 버젼을 골라서  설치함
+
+# giteyeapp 
+
+http://www.collab.net/giteyeapp 
+
+# git 계정만들기
+
+https://github.com/ 에 sign in  으로 계정 만듬
+
+# giteyeapp  repos.. 만들기
