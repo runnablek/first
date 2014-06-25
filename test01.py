@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 
+
 def test01():
 	flag = True
 	if flag :
@@ -113,13 +114,12 @@ def test08():
 	print()
 
 def sleep_in(weekday, vacation):
-	'''
+	''' 
 	The parameter weekday is True if it is a weekday, and the parameter vacation is True if we are on vacation.
-	We sleep in if it is not a weekday or we're on vacation. Return True if we sleep in. 
-
-	sleep_in(False, False) ¡æ True
-	sleep_in(True, False) ¡æ False
-	sleep_in(False, True) ¡æ True		
+	We sleep in if it is not a weekday or we're on vacation. Return True if we sleep in.
+	sleep_in(False, False) -> True
+	sleep_in(True, False)  -> False
+	sleep_in(False, True)  -> True
 	'''
 
 	if weekday == False or vacation == True:
@@ -209,12 +209,45 @@ def test14(a, b, *cc):
 	print(a, b)
 	print(type(a), type(b), type(cc))
 
-	cc.ins
+	
+def test15(n): # lambda expressions
+	return lambda x: x+n
+
+def test16():
+	"""
+	why don't go away??!?!?
+
+	go run!!
+	"""
+
+	a = 1
+
+	# no  __doc__
+	"""
+	Are u ok?
+	"""
+	pass
+
+
+def test17(ham: 42, eggs: int = 'spam') -> "Nothing to see here": 
+	#print("Annotations:", test17.__annotations__)
+	#print("Arguments:", ham, eggs)
+	print(ham, eggs, type(ham), type(eggs))
+
 
 
 def main ():
 
-	test14('a','bb', 'ccc','dddd','eeeee')
+
+	test17('aaaa', eggs='wonderful')
+
+	#print(test16.__doc__)
+
+	#f = test15(33)
+	#print(f(1), f(3))
+	
+
+	#test14('a','bb', 'ccc','dddd','eeeee')
 
 	#test01()
 	#test02()
