@@ -46,13 +46,15 @@ def test02(): # file open.... write by json type
 
 
 
-	f = open('temp', 'wb')
-	#f.write(b'writting temp file')
+	f = open('temp', 'w')
 
-	import json
+	for i in range(11):
+		f.write('writting temp file {}\n'.format(i))
 
-	a = [1, 'simple', 'list']
-	json.dumps(a,f)
+	#import json
+
+	#a = [1, 'simple', 'list']
+	#json.dumps(a,f)
 
 
 def main():
