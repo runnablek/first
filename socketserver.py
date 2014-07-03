@@ -1,45 +1,76 @@
-import socket
-import threading
-import socketserver
+from socket import *
 
-class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
+def client(ip, port):
 
-    def handle(self):
-        data = str(self.request.recv(1024), 'ascii')
-        cur_thread = threading.current_thread()
-        response = bytes("{}: {}".format(cur_thread.name, data), 'ascii')
-        self.request.sendall(response)
+    sock = socket(AF_INET, SOCK_DGRAM )
+    sock.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
+    sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 
-class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    pass
 
-def client(ip, port, message):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.connect((ip, port))
-    try:
-        sock.sendall(bytes(message, 'ascii'))
-        response = str(sock.recv(1024), 'ascii')
-        print("Received: {}".format(response))
-    finally:
-        sock.close()
+    #print(dir(sock.setsockopt))
+
+    #baddr = (ip, port)
+    #print(type(baddr), baddr)
+
+    
+    host = gethostbyname(gethostname())
+    sock.bind((host, 0))
+
+    data, addr = sock.recvfrom(1024)
+    print(data)
+
+    '''
+    
+
+    #sock.bind(('', port))
+
+    while True:
+
+        print('111')
+        
+
+
+    '''
+
+    sock.close()
+
 
 if __name__ == "__main__":
-    # Port 0 means to select an arbitrary unused port
-    HOST, PORT = "localhost", 0
 
-    server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)
-    ip, port = server.server_address
 
-    # Start a thread with the server -- that thread will then start one
-    # more thread for each request
-    server_thread = threading.Thread(target=server.serve_forever)
-    # Exit the server thread when the main thread terminates
-    server_thread.daemon = True
-    server_thread.start()
-    print("Server loop running in thread:", server_thread.name)
+   
+    '''
+    [pibcmbfu] # [cts] future
+    15572  233.37.54.171   * KP200 real
+    16572   233.37.54.171   * KP200 test
+    1234   233.37.54.171   * KP200 virtual sise
 
-    client(ip, port, "Hello World 1")
-    client(ip, port, "Hello World 2")
-    client(ip, port, "Hello World 3")
 
-    server.shutdown()
+    #define IP_FUTURE                       ("231.2.2.11")
+    #define PORT_FUTURE                     (35572)
+    #define PORT_FUTURE_SEND                (1234)
+
+    #define IP_CALL                         ("231.2.2.11")
+    #define PORT_CALL                       (35515)
+    #define PORT_CALL_SEND                  (1235)
+
+    #define IP_PUT                          ("231.2.2.11")
+    #define PORT_PUT                        (35516)
+    #define PORT_PUT_SEND                   (1236)
+
+
+
+
+    '''
+
+
+    ip = '231.2.2.11'
+    port =  35572
+
+    client(ip, port)
+
+    
+
+   
+
+
