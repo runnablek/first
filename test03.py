@@ -73,6 +73,7 @@ def test05():
 	e.add_trick('play dead')
 
 	print(d.tricks)
+	print(d.tricks)	
 
 
 
