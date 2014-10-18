@@ -78,6 +78,7 @@ def test05():
 
 
 
+
 class Bag: # Methods may call other methods by using method attributes of the self argument:
     def __init__(self):
         self.data = []
